@@ -1,0 +1,9 @@
+def get_count(sentence):
+    count = 0
+    for i in range(len(sentence)):
+        if sentence[i] in 'aeiou':
+            count += 1
+
+    return count
+
+print(get_count('tmp'))
