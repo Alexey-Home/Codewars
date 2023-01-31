@@ -1,0 +1,9 @@
+    numbers = numbers.split(" ")
+    max_num = numbers[0]
+    min_num = numbers[0]
+    for i in numbers:
+        if int(max_num) < int(i):
+            max_num = i
+        if int(min_num) > int(i):
+            min_num = i
+    return max_num + " " + min_num
