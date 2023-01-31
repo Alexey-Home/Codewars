@@ -1,0 +1,11 @@
+def accum(s):
+    result = ""
+    for number, letter in enumerate(s):
+        for i in range(number + 1):
+            if i == 0:
+                result += letter.upper()
+            else:
+                result += letter.lower()
+        if number + 1 < len(s):
+            result += "-"
+    return result
