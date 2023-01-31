@@ -1,0 +1,9 @@
+def DNA_strand(dna):
+    new_dna = ""
+    for number, i in enumerate(dna):
+        for j in ["A", "T"], ["G", "C"]:
+            if i in j:
+                new_dna += j[j.index(i) - 1]
+                break
+
+    return new_dna
