@@ -1,0 +1,6 @@
+def square_digits(num):
+    nums = str(num)
+    sum = ""
+    for i in range(len(nums)):
+        sum += f'{(int(nums[i]))**2}'
+    return int(sum)
