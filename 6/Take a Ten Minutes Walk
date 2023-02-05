@@ -1,0 +1,5 @@
+def is_valid_walk(word):
+    if word.count('n') == word.count('s') and word.count('w') == word.count('e') and len(word) * 1 == 10:
+        return True
+    else:
+        return False
