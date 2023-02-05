@@ -1,0 +1,10 @@
+def find_uniq(arr):
+    if arr[0] == arr[1]:
+        num = arr[0]
+    elif arr[0] == arr[2]:
+        num = arr[0]
+    else:
+        num = arr[1]
+    tmp = set(arr)
+    tmp.discard(num)
+    return list(tmp)[0]
