@@ -1,0 +1,8 @@
+def duplicate_count(text):
+    s = set(text.lower())
+    count = 0
+    for i in s:
+        if text.lower().count(i) >= 2:
+            count += 1
+    return count
+     
