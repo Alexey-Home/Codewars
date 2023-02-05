@@ -1,0 +1,7 @@
+def dig_pow(n, p):
+    a = [int(i) for i in list(str(n))]
+    res = 0
+    for k in a:
+        res += k ** p
+        p += 1
+    return int(res/n) if res % n == 0 else -1
