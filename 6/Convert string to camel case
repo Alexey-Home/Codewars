@@ -1,0 +1,3 @@
+import re
+def to_camel_case(text):
+    return "".join([i.lower() if number == 0 and i[0].islower() else i.title() for number, i in enumerate(re.compile(r"[a-zA-Z]+").findall(text))])
