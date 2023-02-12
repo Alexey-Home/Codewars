@@ -1,0 +1,2 @@
+def make_readable(seconds):
+    return str(seconds//60//60).rjust(2, "0") + ":" + str(seconds//60 % 60).rjust(2, "0") + ":" + str(seconds % 60).rjust(2, "0")
