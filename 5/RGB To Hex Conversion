@@ -1,0 +1,3 @@
+def rgb(r, g, b):
+    l = [0 if i < 0 else i and 255 if i > 255 else i for i in [r, g, b]]
+    return "".join([hex(i)[2:].upper().rjust(2, "0") for i in l])
