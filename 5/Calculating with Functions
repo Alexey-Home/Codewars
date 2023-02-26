@@ -1,0 +1,70 @@
+def zero(*args):
+    return do([0] + list(*args)) if args else 0
+
+
+def one(*args):
+    return do([1] + list(*args)) if args else 1
+
+
+def two(*args):
+    return do([2] + list(*args)) if args else 2
+
+
+def three(*args):
+
+    return do([3] + list(*args)) if args else 3
+
+
+def four(*args):
+    return do([4] + list(*args)) if args else 4
+
+
+def five(*args):
+    return do([5] + list(*args)) if args else 5
+
+
+def six(*args):
+    return do([6] + list(*args)) if args else 6
+
+
+def seven(*args):
+    return do([7] + list(*args)) if args else 7
+
+
+def eight(*args):
+    return do([8] + list(*args)) if args else 8
+
+
+def nine(*args):
+    return do([9] + list(*args)) if args else 9
+
+
+
+def plus(args):
+    return args, "+"
+
+
+def times(args):
+    return args, "*"
+
+
+def minus(args):
+    return args, "-"
+
+
+def divided_by(args):
+    return args, ":"
+
+
+def do(args):
+    x1 = args[0]
+    x2 = args[1]
+    exp = args[2]
+    if exp == "*":
+        return x1 * x2
+    elif exp == "-":
+        return x1 - x2
+    elif exp == "+":
+        return x1 + x2
+    elif exp == ":":
+        return x1//x2
