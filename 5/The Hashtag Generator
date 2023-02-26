@@ -1,0 +1,2 @@
+def generate_hashtag(s):
+    return False if len(s) == 0 or len(s)> 140 else "#" + "".join([i.title() for i in s.split(" ")])
