@@ -1,0 +1,19 @@
+def rot13(s):
+    res = []
+    for i in s:
+        if i.isalpha():
+            if 65 <= ord(i) <= 90:
+                res.append(do([65, 90], i))
+            elif 97 <= ord(i) <= 122:
+                res.append(do([97, 122], i))
+        else:
+            res.append(i)
+    return "".join(res)
+
+
+def do(limit, i):
+    index = ord(i) + 13
+    if index > limit[1]:
+        index -= limit[1]
+        index += limit[0] - 1
+    return chr(index)
