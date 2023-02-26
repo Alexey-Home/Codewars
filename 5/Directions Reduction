@@ -1,0 +1,25 @@
+def dirReduc(arr):
+    point = [[0, 0]]
+    road = []
+    step = 0
+    x = 0
+    y = 0
+
+    for i in arr:
+        if "NORTH" == i:
+            y += 1
+        elif "SOUTH" == i:
+            y -= 1
+        if "EAST" == i:
+            x += 1
+        elif "WEST" == i:
+            x -= 1
+        if [x, y] == point[step-1]:
+            road.pop(step-1)
+            point.pop(step)
+            step -= 1
+        else:
+            road.append(i)
+            point.append([x, y])
+            step += 1
+    return road
