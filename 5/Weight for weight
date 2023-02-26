@@ -1,0 +1,12 @@
+def order_weight(strng):
+    l = [i for i in strng.split(" ") if i.isdigit()]
+    length = len(l)
+    while length > 0:
+        for i in range(length - 1):
+            if l[i] > l[i + 1]:
+                l[i], l[i + 1] = l[i + 1], l[i]
+        length -= 1
+    return " ".join(sorted(l, key=foo))
+
+def foo(g):
+    return sum([int(j) for j in g])
