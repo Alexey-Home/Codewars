@@ -1,0 +1,9 @@
+import re
+
+def increment_string(strng):
+    if re.compile(r"[0-9]+$").findall(strng):
+        num = re.compile(r"[0-9]+$").findall(strng)[0]
+        tmp = str(int(num) + 1).rjust(len(num), "0")
+        return re.compile(r"([0-9]+$)").sub(tmp, strng)
+    else:
+        return strng + "1"
