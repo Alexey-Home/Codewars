@@ -1,0 +1,8 @@
+def sum_pairs(ints, s):
+    digit = {}
+    for num, i in enumerate(ints):
+        if i in digit:
+            return [ints[digit[i]], i]
+        else:
+            digit[s - i] = num
+    return None
