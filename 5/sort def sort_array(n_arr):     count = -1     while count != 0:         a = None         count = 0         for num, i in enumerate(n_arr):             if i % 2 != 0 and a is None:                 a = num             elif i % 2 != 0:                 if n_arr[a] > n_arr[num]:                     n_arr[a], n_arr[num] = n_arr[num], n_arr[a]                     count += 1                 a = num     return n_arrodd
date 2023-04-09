@@ -1,0 +1,14 @@
+def sort_array(n_arr):
+    count = -1
+    while count != 0:
+        a = None
+        count = 0
+        for num, i in enumerate(n_arr):
+            if i % 2 != 0 and a is None:
+                a = num
+            elif i % 2 != 0:
+                if n_arr[a] > n_arr[num]:
+                    n_arr[a], n_arr[num] = n_arr[num], n_arr[a]
+                    count += 1
+                a = num
+    return n_arr
