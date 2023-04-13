@@ -1,0 +1,26 @@
+import re
+def solution(roman):
+    sample = {
+        4: r"IV",
+        9: r"IX",
+        900: r"CM",
+        40: r"XL",
+        90: r"XC",
+        400: r"CD",
+        1: r"(?<!I)I{1}",
+        5: r"(?<!I|V)V{1}",
+        10: r"(?<!I|X)X{1}",
+        50: r"(?<!I|L)L{1}",
+        100: r"(?<!I|C)C{1}",
+        500: r"(?<!I|D)D{1}",
+        1000: r"(?<!I|M)M{1}"
+    }
+
+    sum = 0
+    while roman:
+        for key, val in sample.items():
+            if re.search(val, roman):
+                roman = re.sub(val, "", roman)
+                sum += key
+                break
+    return sum
