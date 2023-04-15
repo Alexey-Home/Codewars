@@ -1,0 +1,59 @@
+import re
+
+def format_duration(seconds):
+    if seconds == 0:
+        return "now"
+    else:
+        strng = get(seconds)
+        if re.compile(r",[^,]*$").findall(strng):
+            tmp = re.compile(r",[^,]*$").findall(strng)[0]
+            tmp1 = tmp.replace(",", " and")
+            strng = re.sub(tmp, tmp1, strng)
+        return strng
+
+def get(seconds):
+    strng = ""
+    if seconds//31536000 > 0:
+        strng += f"{seconds//31536000} year"
+        if seconds//31536000 > 1:
+            strng += "s"
+        if seconds % 31536000 > 0:
+            strng += ", "
+        strng += get(seconds % 31536000)
+
+    elif seconds//86400 > 0:
+        strng += f"{seconds//86400} day"
+        if seconds//86400 > 1:
+            strng += "s"
+
+        if seconds % 86400 > 0:
+            strng += ", "
+
+        strng += get(seconds % 86400)
+
+    elif seconds//3600 > 0:
+        strng += f"{seconds//3600} hour"
+        if seconds//3600 > 1:
+            strng += "s"
+
+        if seconds % 3600 > 0:
+            strng += ", "
+
+        strng += get(seconds % 3600)
+
+    elif seconds // 60 > 0:
+        strng += f"{seconds // 60} minute"
+        if seconds // 60 > 1:
+            strng += "s"
+
+        if seconds % 60:
+            strng += ", "
+
+        strng += get(seconds % 60)
+
+    elif seconds % 60 > 0:
+        strng += f"{seconds % 60} second"
+        if seconds % 60 > 1:
+            strng += "s"
+    return strng
+
