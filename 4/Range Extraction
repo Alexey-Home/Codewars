@@ -1,0 +1,21 @@
+def solution(args):
+    new_lst = []
+    lst_range = []
+    for i in range(len(args)):
+        if len(lst_range) == 0 or abs(lst_range[-1] - args[i]) == 1:
+            lst_range.append(args[i])
+            if i != len(args): continue
+        new_lst.append(lst_range)
+        lst_range = [args[i]]
+    else:
+        new_lst.append(lst_range)
+
+    return ",".join(list(map(func, new_lst)))
+
+def func(a):
+    if len(a) == 1:
+        return f"{a[0]}"
+    elif len(a) == 2:
+        return f"{a[0]},{a[-1]}"
+    else:
+        return f"{a[0]}-{a[-1]}"
