@@ -1,0 +1,29 @@
+def next_bigger(n):
+    s = list(str(n))
+    index = 0
+    num = None
+    for i in range(-1, -len(s), -1):
+        if int(s[i]) > int(s[i-1]):
+            index = len(s) - abs(i - 1)
+            num = s[i-1]
+            break
+    else:
+        return -1
+
+    delta = 10
+    for i in range(index, len(s)):
+        if int(num) < int(s[i]):
+            if int(s[i]) - int(num) < delta:
+                delta = int(s[i]) - int(num)
+                s[index], s[i] = s[i], s[index]
+
+
+    i = index + 1
+    while i != len(s) - 1:
+        if s[i] > s[i + 1]:
+            s[i], s[i + 1] = s[i + 1], s[i]
+            i = index + 1
+        else:
+            i += 1
+
+    return int("".join(s))
