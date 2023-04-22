@@ -1,0 +1,12 @@
+def strip_comments(strng, marker):
+    ls = strng.split("\n")
+    for i in range(len(ls)):
+        for j in marker:
+            if j in ls[i]:
+                index = ls[i].index(j)
+                if index == len(ls[i]):
+                    k = 1
+                else:
+                    k = 0
+                ls[i] = ls[i][:index - k].rstrip()
+    return "\n".join(ls)
