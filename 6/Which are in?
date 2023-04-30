@@ -1,0 +1,2 @@
+def in_array(array1, array2):
+    return sorted([i for i in set(array1) if i in " ".join(array2)])
