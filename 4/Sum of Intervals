@@ -1,0 +1,20 @@
+def sum_of_intervals(intervals):
+    i = 0
+    while i != len(intervals):
+        j = 0
+        while j != len(intervals):
+            if i == j:
+                j += 1
+                continue
+            if intervals[j][0] <= intervals[i][0] <= intervals[j][1] or \
+                    intervals[j][0] <= intervals[i][1] <= intervals[j][1]:
+                tmp = intervals[i] + intervals[j]
+                intervals[i] = (min(tmp), max(tmp))
+                intervals.pop(j)
+                i = 0
+                break
+            else:
+                j += 1
+        else:
+            i += 1
+    return sum([end - start for start, end in intervals])
