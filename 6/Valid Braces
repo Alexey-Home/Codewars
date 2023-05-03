@@ -1,0 +1,11 @@
+def valid_braces(string, i=0):
+    d = {"{": "}", "[": "]", "(": ")"}
+    t = []
+    for w in string:
+        if w in d:
+            t.append(d[w])
+        elif len(t) == 0 or w != t[-1]:
+            return False
+        else:
+            t.pop(-1)
+    return False if t else True
