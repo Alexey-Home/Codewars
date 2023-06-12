@@ -1,0 +1,85 @@
+import re
+
+class RomanNumerals:
+    digit = {
+        r"IV": 4,
+        r"V": 5,
+        r"IX": 9,
+        r"XC": 90,
+        r"XL": 40,
+        r"CD": 400,
+        r"CM": 900,
+        r"X": 10,
+        r"I": 1,
+        r"L": 50,
+        r"C": 100,
+        r"D": 500,
+        r"M": 1000,
+    }
+
+    symbol = {
+        1: "I",
+        2: "II",
+        3: "III",
+        4: "IV",
+        5: "V",
+        6: "VI",
+        7: "VII",
+        8: "VIII",
+        9: "IX",
+        10: "X",
+        20: "XX",
+        30: "XXX",
+        40: "XL",
+        50: "L",
+        60: "LX",
+        70: "LXX",
+        80: "LXXX",
+        90: "XC",
+        100: "C",
+        200: "CC",
+        300: "CCC",
+        400: "CD",
+        500: "D",
+        600: "DC",
+        700: "DCC",
+        800: "DCCC",
+        900: "CM",
+        1000: "M",
+        2000: "MM",
+        3000: "MMM",
+    }
+
+    @staticmethod
+    def to_roman(val):
+        digit = []
+        multy = 10
+        for _ in range(4):
+            tmp = val % multy
+            digit.append(tmp)
+            multy *= 10
+            val -= tmp
+        digit.reverse()
+
+        result = []
+        for d in digit:
+            if d <= 0:
+                continue
+            for key, symbol in RomanNumerals.symbol.items():
+                if key == d:
+                    result.append(symbol)
+                    break
+
+        return "".join(result)
+
+    @staticmethod
+    def from_roman(roman_num):
+        result = 0
+        while True:
+            if roman_num == "":
+                break
+            for key, digit in RomanNumerals.digit.items():
+                if re.compile(f".*{key}.*").match(roman_num):
+                    roman_num = re.sub(key, "", roman_num, count=1)
+                    result += digit
+        return result
