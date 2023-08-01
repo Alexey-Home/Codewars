@@ -1,0 +1,18 @@
+def longest_consec(strarr, k):
+    d = {}
+    for i in range(len(strarr)):
+        tmp = []
+        j = i
+        count = 0
+        try:
+            while count < k:
+                tmp.append(strarr[j])
+                count += 1
+                j += 1
+            d["".join(tmp)] = len("".join(tmp))
+        except IndexError:
+            break
+    if d:
+        return max(d, key=d.get)
+    else:
+        return ""
